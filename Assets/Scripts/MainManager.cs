@@ -79,17 +79,17 @@ public class MainManager : MonoBehaviour
     void AddPoint(int point)
     {
         m_Points += point;
-        ScoreText.text = "Score: " + m_Points + "  Name:" + DataManager.Instance.playerName;
+        ScoreText.text = "Score: " + m_Points + "  Name: " + DataManager.Instance.playerName;
     }
 
     public void GameOver()
     {
-      //  if (m_Points > DataManager.Instance.currentHighScore)
-     //   {
+        if (m_Points > DataManager.Instance.currentHighScore)
+        {
             DataManager.Instance.SavePlayerData();
             DataManager.Instance.LoadData();
             ScoreBoardTextUpdate();
-      //  }
+        }
         m_GameOver = true;
         GameOverText.SetActive(true);
     }
